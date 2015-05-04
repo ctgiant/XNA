@@ -1,0 +1,5 @@
+DeOxyRibose-qt usr/bin
+share/pixmaps/xna32.xpm usr/share/pixmaps
+share/pixmaps/xna80.xpm usr/share/pixmaps
+debian/DeOxyRibose-qt.desktop usr/share/applications
+debian/DeOxyRibose-qt.protocol usr/share/kde4/services/

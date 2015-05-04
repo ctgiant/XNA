@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DeOxyRibose
+Comment=DeOxyRibose P2P Cryptocurrency
+Comment[fr]=DeOxyRibose, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=DeOxyRibose, eşten eşe kriptografik sanal para birimi
+Comment[es]=DeOxyRibose, una criptomoneda P2P
+Exec=/usr/bin/DeOxyRibose-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/xna80.xpm
+MimeType=x-scheme-handler/DeOxyRibose;
+Categories=Office;

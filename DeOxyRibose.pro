@@ -6,20 +6,25 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE BOOST_THREAD_PROV
 CONFIG += no_include_pwd
 QT+=network
 
-#windows:LIBS += -lshlwapi
-#LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-#LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
-#windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
-#LIBS += -lboost_system-mgw46-mt-s-1_55 -lboost_filesystem-mgw46-mt-s-1_55 -lboost_program_options-mgw46-mt-s-1_55 -lboost_thread-mgw46-mt-s-1_55
-#BOOST_LIB_SUFFIX=-mgw46-mt-s-1_55
-#BOOST_INCLUDE_PATH=C:/deps/boost_1_55_0
-#BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
-#BDB_INCLUDE_PATH=c:/deps/db-4.8.30.NC/build_unix
-#BDB_LIB_PATH=c:/deps/db-4.8.30.NC/build_unix
-#OPENSSL_INCLUDE_PATH=c:/deps/openssl-1.0.1j/include
-#OPENSSL_LIB_PATH=c:/deps/openssl-1.0.1j
-#MINIUPNPC_INCLUDE_PATH=C:/deps/ 
-#MINIUPNPC_LIB_PATH=C:/deps/miniupnpc 
+linux {
+    SECP256K1_LIB_PATH = /usr/local/lib
+    SECP256K1_INCLUDE_PATH = /usr/local/include
+}
+
+windows:LIBS += -lshlwapi
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
+LIBS += -lboost_system-mgw46-mt-s-1_55 -lboost_filesystem-mgw46-mt-s-1_55 -lboost_program_options-mgw46-mt-s-1_55 -lboost_thread-mgw46-mt-s-1_55
+BOOST_LIB_SUFFIX=-mgw46-mt-s-1_55
+BOOST_INCLUDE_PATH=C:/deps/boost_1_55_0
+BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
+BDB_INCLUDE_PATH=c:/deps/db-4.8.30.NC/build_unix
+BDB_LIB_PATH=c:/deps/db-4.8.30.NC/build_unix
+OPENSSL_INCLUDE_PATH=c:/deps/openssl-1.0.1j/include
+OPENSSL_LIB_PATH=c:/deps/openssl-1.0.1j
+MINIUPNPC_INCLUDE_PATH=C:/deps/ 
+MINIUPNPC_LIB_PATH=C:/deps/miniupnpc 
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -62,6 +67,8 @@ contains(XNA_NEED_QT_PLUGINS, 1) {
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
+# LIBSEC256K1 SUPPORT
+QMAKE_CXXFLAGS *= -DUSE_SECP256K1
 
 # regenerate src/build.h
 !windows|contains(USE_BUILD_INFO, 1) {
@@ -407,8 +414,8 @@ macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
-LIBS +=  $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+INCLUDEPATH += $$SECP256K1_INCLUDE_PATH $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
+LIBS +=  $$join(SECP256K1_LIB_PATH,,-L,) $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32

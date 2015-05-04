@@ -134,18 +134,31 @@ OBJS= \
     obj/noui.o \
     obj/kernel.o \
     obj/pbkdf2.o \
-    obj/cubehash.o \
-    obj/luffa.o \
-    obj/aes_helper.o \
-    obj/echo.o \
-    obj/shavite.o \
-    obj/simd.o \
-    obj/blake.o\
-    obj/bmw.o\
-    obj/groestl.o\
-    obj/jh.o\
-    obj/keccak.o\
-    obj/skein.o
+	obj/blake.c \
+	obj/bmw.c \
+	obj/cubehash.c \
+	obj/echo.c \
+	obj/fugue.c \
+	obj/groestl.c \
+	obj/hamsi.c \
+	obj/hamsi_helper.c \
+	obj/haval.c \
+	obj/haval_helper.c \
+	obj/jh.c \
+	obj/keccak.c \
+	obj/luffa.c \
+	obj/md_helper.c \
+	obj/panama.c \
+	obj/ripemd.c \
+	obj/sha2.c \
+	obj/sha2big.c \
+	obj/shabal.c \
+	obj/shavite.c \
+	obj/simd.c \
+	obj/skein.c \
+	obj/tiger.c \
+	obj/utest.c \
+	obj/whirlpool.c
 
 all: DeOxyRibosed
 

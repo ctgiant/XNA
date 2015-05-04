@@ -974,10 +974,6 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 	}
 	else if(nHeight >= 2)
 	{
-		nSubsidy = 1 * COIN;
-	}
-	else if(nHeight >= 800)
-	{
 		nSubsidy = 75000 * COIN;
 	}
 	else if(nHeight >= 2000)
@@ -1061,6 +1057,10 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
 	nRewardCoinYear = 9.70 * COIN;
 	
     int64 nSubsidy = nCoinAge * nRewardCoinYear / 365;
+    if(nHeight >= 100000)
+    {
+		nSubsidy = 1000 * COIN;
+	}
 
 	if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfStakeReward(): create=%s nCoinAge=%"PRI64d" nBits=%d\n", FormatMoney(nSubsidy).c_str(), nCoinAge, nBits);
@@ -2693,7 +2693,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "2cfa4dsa5fbwueohgfughf161e5c1fa7425e730433serg5w4y662938b9827";
+        const char* pszTimestamp = "XNA, Relaunched Three Times, using ThiaMine Algo!";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2706,14 +2706,14 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1430753518;
+        block.nTime    = 1430766190;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 369663;
+        block.nNonce   = 1038859;
 
 		if(fTestNet)
 		{
-			block.nTime    = 1430753528;
-			block.nNonce   = 1124654;
+			block.nTime    = 1430766090;
+			block.nNonce   = 142369;
 		}
 		
 		if (true  && (block.GetHash() != hashGenesisBlock)) {
@@ -2740,7 +2740,7 @@ bool LoadBlockIndex(bool fAllowNew)
 
 
 
-        assert(block.hashMerkleRoot == uint256("7f42d199026b744c9de62eb74974f69ff694f9fea11a5e1e7ad50d9557c08376"));
+        assert(block.hashMerkleRoot == uint256("c53f7465a550717518cc7c48880e355c845c110ade200de8c5fec4a309181a39"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file

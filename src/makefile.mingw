@@ -100,7 +100,7 @@ OBJS= \
     src/cubehash.o \
     src/shavite.o \
     src/echo.o \
-    src/simd.o
+    src/simd.o \
 
 all: DeOxyRibosed.exe
 

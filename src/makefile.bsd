@@ -139,7 +139,7 @@ OBJS= \
 all: DeOxyRibosed
 
 test check: test_DeOxyRibose FORCE
-	./test_BottleCaps
+	./test_DeOxyRibose
 
 # auto-generated dependencies:
 -include obj/*.P

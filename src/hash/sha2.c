@@ -619,7 +619,7 @@ sph_sha224_init(void *cc)
 {
 	sph_sha224_context *sc;
 
-	sc = cc;
+	sc = (sph_sha224_context*)cc;
 	memcpy(sc->val, H224, sizeof H224);
 #if SPH_64
 	sc->count = 0;
@@ -634,7 +634,7 @@ sph_sha256_init(void *cc)
 {
 	sph_sha256_context *sc;
 
-	sc = cc;
+	sc = (sph_sha256_context*)cc;
 	memcpy(sc->val, H256, sizeof H256);
 #if SPH_64
 	sc->count = 0;
@@ -653,7 +653,7 @@ void
 sph_sha224_close(void *cc, void *dst)
 {
 	sha224_close(cc, dst, 7);
-	sph_sha224_init(cc);
+	sph_sha224_init((sph_sha224_context*)cc);
 }
 
 /* see sph_sha2.h */
@@ -661,7 +661,7 @@ void
 sph_sha224_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
 	sha224_addbits_and_close(cc, ub, n, dst, 7);
-	sph_sha224_init(cc);
+	sph_sha224_init((sph_sha224_context*)cc);
 }
 
 /* see sph_sha2.h */
@@ -669,7 +669,7 @@ void
 sph_sha256_close(void *cc, void *dst)
 {
 	sha224_close(cc, dst, 8);
-	sph_sha256_init(cc);
+	sph_sha256_init((sph_sha256_context*)cc);
 }
 
 /* see sph_sha2.h */
@@ -677,7 +677,7 @@ void
 sph_sha256_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
 	sha224_addbits_and_close(cc, ub, n, dst, 8);
-	sph_sha256_init(cc);
+	sph_sha256_init((sph_sha256_context*)cc);
 }
 
 /* see sph_sha2.h */

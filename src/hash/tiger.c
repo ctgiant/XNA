@@ -648,7 +648,7 @@ sph_tiger_init(void *cc)
 {
 	sph_tiger_context *sc;
 
-	sc = cc;
+	sc = (sph_tiger_context*)cc;
 	sc->val[0] = SPH_C64(0x0123456789ABCDEF);
 	sc->val[1] = SPH_C64(0xFEDCBA9876543210);
 	sc->val[2] = SPH_C64(0xF096A5B4C3B2E187);
@@ -667,7 +667,7 @@ sph_tiger_init(void *cc)
 void
 sph_tiger_close(void *cc, void *dst)
 {
-	tiger_close(cc, dst, 3);
+	tiger_close((sph_tiger_context*)cc, dst, 3);
 	sph_tiger_init(cc);
 }
 
@@ -690,8 +690,8 @@ sph_tiger_comp(const sph_u64 msg[8], sph_u64 val[3])
 void
 sph_tiger2_close(void *cc, void *dst)
 {
-	tiger2_close(cc, dst, 3);
-	sph_tiger2_init(cc);
+	tiger2_close((sph_tiger_context*)cc, dst, 3);
+	sph_tiger2_init((sph_tiger_context*)cc);
 }
 
 #endif

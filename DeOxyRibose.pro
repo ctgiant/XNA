@@ -11,7 +11,8 @@ linux {
     SECP256K1_INCLUDE_PATH = /usr/local/include
 }
 
-windows:LIBS += -lshlwapi
+win32 {
+LIBS += -lshlwapi
 LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 windows:LIBS += -lws2_32 -lole32 -loleaut32 -luuid -lgdi32
@@ -25,6 +26,7 @@ OPENSSL_INCLUDE_PATH=c:/deps/openssl-1.0.1j/include
 OPENSSL_LIB_PATH=c:/deps/openssl-1.0.1j
 MINIUPNPC_INCLUDE_PATH=C:/deps/ 
 MINIUPNPC_LIB_PATH=C:/deps/miniupnpc 
+}
 
 OBJECTS_DIR = build
 MOC_DIR = build

@@ -977,73 +977,73 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 	{
 		nSubsidy = 75000 * COIN;
 	}
-	else if(nHeight >= 2000)
+	else if(nHeight >= 600)
 	{
 		nSubsidy = 73000 * COIN;
 	}
-	else if(nHeight >= 4000)
+	else if(nHeight >= 800)
 	{
 		nSubsidy = 70000 * COIN;
 	}
-	else if(nHeight >= 8000)
+	else if(nHeight >= 1000)
 	{
 		nSubsidy = 69850 * COIN;
 	}
-	else if(nHeight >= 12000)
+	else if(nHeight >= 1200)
 	{
 		nSubsidy = 67842 * COIN;
 	}
-	else if(nHeight >= 16000)
+	else if(nHeight >= 1400)
 	{
 		nSubsidy = 65951 * COIN;
 	}
-	else if(nHeight >= 18000)
+	else if(nHeight >= 1800)
 	{
 		nSubsidy = 62854 * COIN;
 	}
-	else if(nHeight >= 24000)
+	else if(nHeight >= 2400)
 	{
 		nSubsidy = 51268 * COIN;
 	}
-	else if(nHeight >= 28418)
+	else if(nHeight >= 2841)
 	{
 		nSubsidy = 48968 * COIN;
 	}
-	else if(nHeight >= 31235)
+	else if(nHeight >= 3125)
 	{
 		nSubsidy = 44849 * COIN;
 	}
-	else if(nHeight >= 34895)
+	else if(nHeight >= 3489)
 	{
 		nSubsidy = 43586 * COIN;
 	}
-	else if(nHeight >= 38964)
+	else if(nHeight >= 3894)
 	{
 		nSubsidy = 40000 * COIN;
 	}
-	else if(nHeight >= 40000 && nFees <= 1 * COIN)
+	else if(nHeight >= 4000 && nFees <= 1 * COIN)
 	{
-		nSubsidy = 39523 * COIN;
+		nSubsidy = 4000 * COIN;
 	}
-	else if(nHeight >= 40000 && nFees <= 100 * COIN)
+	else if(nHeight >= 4000 && nFees >= 100 * COIN)
 	{
 		nSubsidy = nFees * 4444444 / 12121212;
-		if(nSubsidy >= 1000) {nSubsidy = nFees;}
+		if(nSubsidy >= 100) {nSubsidy = nFees;}
 	}
-	else if(nHeight >= 40000 && nFees <= 1000 * COIN)
+	else if(nHeight >= 4000 && nFees >= 1000 * COIN)
 	{
 		nSubsidy = nFees * 2222222 / 66666;
 		if(nSubsidy >= 10000) {nSubsidy = nFees;}
 	}
-	else if(nHeight >= 40000 && nFees <= 10000 * COIN)
+	else if(nHeight >= 4000 && nFees >= 10000 * COIN)
 	{
 		nSubsidy = nFees * 8888888 / 3434343434 * 10000;
-		if(nSubsidy >= 10000) {nSubsidy = nFees;}
+		if(nSubsidy >= 10000) {nSubsidy = nFees / 4;}
 	}
-	else if(nHeight >= 40000 && nFees <= 100000 * COIN)
+	else if(nHeight >= 4000 && nFees >= 100000 * COIN)
 	{
 		nSubsidy = nFees * 1111111 / 222222;
-		if(nSubsidy >= 1000000) {nSubsidy = nFees;}
+		if(nSubsidy >= 1000000) {nSubsidy = nFees / 8;}
 	}
 	
 	return nSubsidy + nFees;

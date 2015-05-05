@@ -86,7 +86,7 @@ utest_strtobin(void *dst, char *src)
 	int z;
 	unsigned acc;
 
-	buf = dst;
+	buf = (unsigned char*)dst;
 	z = 0;
 	acc = 0;
 	while (*src != 0) {
@@ -102,7 +102,7 @@ utest_strtobin(void *dst, char *src)
 		z = !z;
 	}
 	if (z)
-		fail("incomplete last byte");
+		fail((char*)("incomplete last byte"));
 	return (size_t)(buf - (unsigned char *)dst);
 }
 
@@ -119,7 +119,7 @@ utest_printarray(void *src, size_t len)
 {
 	unsigned char *buf;
 
-	buf = src;
+	buf = (unsigned char*)src;
 	while (len -- > 0)
 		printf("%02X", (unsigned)*buf ++);
 }

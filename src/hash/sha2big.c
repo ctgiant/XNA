@@ -182,7 +182,7 @@ sph_sha384_init(void *cc)
 {
 	sph_sha384_context *sc;
 
-	sc = cc;
+	sc = (sph_sha384_context*)cc;
 	memcpy(sc->val, H384, sizeof H384);
 	sc->count = 0;
 }
@@ -193,7 +193,7 @@ sph_sha512_init(void *cc)
 {
 	sph_sha512_context *sc;
 
-	sc = cc;
+	sc = (sph_sha512_context*)cc;
 	memcpy(sc->val, H512, sizeof H512);
 	sc->count = 0;
 }
@@ -207,32 +207,32 @@ sph_sha512_init(void *cc)
 void
 sph_sha384_close(void *cc, void *dst)
 {
-	sha384_close(cc, dst, 6);
-	sph_sha384_init(cc);
+	sha384_close((sph_sha384_context*)cc, dst, 6);
+	sph_sha384_init((sph_sha384_context*)cc);
 }
 
 /* see sph_sha3.h */
 void
 sph_sha384_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	sha384_addbits_and_close(cc, ub, n, dst, 6);
-	sph_sha384_init(cc);
+	sha384_addbits_and_close((sph_sha384_context*)cc, ub, n, dst, 6);
+	sph_sha384_init((sph_sha384_context*)cc);
 }
 
 /* see sph_sha3.h */
 void
 sph_sha512_close(void *cc, void *dst)
 {
-	sha384_close(cc, dst, 8);
-	sph_sha512_init(cc);
+	sha384_close((sph_sha384_context*)cc, dst, 8);
+	sph_sha512_init((sph_sha512_context*)cc);
 }
 
 /* see sph_sha3.h */
 void
 sph_sha512_addbits_and_close(void *cc, unsigned ub, unsigned n, void *dst)
 {
-	sha384_addbits_and_close(cc, ub, n, dst, 8);
-	sph_sha512_init(cc);
+	sha384_addbits_and_close((sph_sha384_context*)cc, ub, n, dst, 8);
+	sph_sha512_init((sph_sha512_context*)cc);
 }
 
 /* see sph_sha3.h */

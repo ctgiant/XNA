@@ -25,7 +25,7 @@ BDB_LIB_PATH=c:/deps/db-4.8.30.NC/build_unix
 OPENSSL_INCLUDE_PATH=c:/deps/openssl-1.0.1j/include
 OPENSSL_LIB_PATH=c:/deps/openssl-1.0.1j
 MINIUPNPC_INCLUDE_PATH=C:/deps/ 
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc 
+MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
 }
 
 OBJECTS_DIR = build

@@ -17,7 +17,10 @@ public:
      */
     enum Unit
     {
+		TXnA,
+		dXNA,
         XNA,
+		mmXNA,
         mXNA,
         uXNA
     };

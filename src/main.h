@@ -27,7 +27,7 @@ class CRequestTracker;
 class CNode;
 
 
-#define POW_CUTOFF_HEIGHT 100000
+#define POW_CUTOFF_HEIGHT 10000
 
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
@@ -36,8 +36,8 @@ static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = CENT;
 static const int64 MIN_TX_FEE = 1 * CENT;
 static const int64 MIN_RELAY_TX_FEE = 1 * CENT;
-static const int64 MAX_MONEY = 1000000000000 * COIN;
-static const int64 MAX_MONEY2 = 1000000000000 * COIN;			// 750 Trillion
+static const int64 MAX_MONEY = 72000000000 * COIN;
+static const int64 MAX_MONEY2 = 72000000000 * COIN;			// 75 Billion
 
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 

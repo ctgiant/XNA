@@ -11,7 +11,7 @@
 const std::string CLIENT_NAME("DeOxyRibose");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   " XNA-1.0"
+#define CLIENT_VERSION_SUFFIX   " XNA"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.

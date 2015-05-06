@@ -38,6 +38,7 @@ static const int64 MIN_TX_FEE = 1 * CENT;
 static const int64 MIN_RELAY_TX_FEE = 1 * CENT;
 static const int64 MAX_MONEY = 72000000000 * COIN;
 static const int64 MAX_MONEY2 = 72000000000 * COIN;			// 75 Billion
+static const int64 COIN_YEAR_REWARD = 910 * CENT; // 910% per year
 
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 

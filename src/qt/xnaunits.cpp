@@ -21,10 +21,7 @@ bool DeOxyRiboseUnits::valid(int unit)
 {
     switch(unit)
     {
-    case TXnA:
     case XNA:
-    case dXNA:
-    case mmXNA:
     case mXNA:
     case uXNA:
         return true;
@@ -37,10 +34,7 @@ QString DeOxyRiboseUnits::name(int unit)
 {
     switch(unit)
     {
-    case TXnA: return QString("TXnA");
     case XNA: return QString("XNA");
-    case dXNA: return QString("dXNA");
-    case mmXNA: return QString("mmXNA");
     case mXNA: return QString("mXNA");
     case uXNA: return QString::fromUtf8("μXNA");
     default: return QString("???");
@@ -51,10 +45,7 @@ QString DeOxyRiboseUnits::description(int unit)
 {
     switch(unit)
     {
-    case TXnA: return QString("TonXNA (1 * 100)");
     case XNA: return QString("XNA)");
-    case dXNA: return QString("Deci-XNA (1 / 10)");
-    case mmXNA: return QString("Micro-XNA (1 / 100)");
     case mXNA: return QString("Milli-XNA (1 / 1,000)");
     case uXNA: return QString("Uni-XNA (1 / 1,000,000)");
     default: return QString("???");
@@ -65,9 +56,6 @@ qint64 DeOxyRiboseUnits::factor(int unit)
 {
     switch(unit)
     {
-    case TXnA:  return  10000000000;
-	case XNA:  return   1000000000;
-	case dXNA:  return  100000000;
     case XNA:  return   1000000;
     case mXNA: return   1000;
     case uXNA: return   1;
@@ -79,10 +67,7 @@ int DeOxyRiboseUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case TXnA: return  1; // 21,000,000 (# digits, without commas)
     case XNA: return   6; // 21,000,000,000
-    case dXNA: return  11; // 21,000,000,000,000
-    case mmXNA: return 15; // 21,000,000 (# digits, without commas)
     case mXNA: return  18; // 21,000,000,000
     case uXNA: return  20; // 21,000,000,000,000
     default: return 0;
@@ -93,10 +78,7 @@ int DeOxyRiboseUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case TXnA: return 15;
-    case XNA: return 12;
-    case dXNA: return 9;
-    case mmXNA: return 6;
+    case XNA: return 6;
     case mXNA: return 3;
     case uXNA: return 0;
     default: return 0;

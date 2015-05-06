@@ -5,11 +5,12 @@
 #ifndef XNA_SYNC_H
 #define XNA_SYNC_H
 
+#ifndef Q_MOC_RUN
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/recursive_mutex.hpp>
 #include <boost/thread/locks.hpp>
 #include <boost/thread/condition_variable.hpp>
-
+#endif
 
 
 

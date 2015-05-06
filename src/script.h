@@ -8,8 +8,10 @@
 #include <string>
 #include <vector>
 
+#ifndef Q_MOC_RUN
 #include <boost/foreach.hpp>
 #include <boost/variant.hpp>
+#endif
 
 #include "keystore.h"
 #include "bignum.h"

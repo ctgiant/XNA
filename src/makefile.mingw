@@ -6,6 +6,7 @@ CXX ?= g++
 
 USE_UPNP:=1
 USE_IPV6:=1
+USE_LEVELDB:=1
 
 DEPSDIR?=/usr/local
 BOOST_SUFFIX?=-mgw48-mt-sd-1_50
@@ -106,6 +107,23 @@ all: DeOxyRibosed.exe
 
 test check: test_DeOxyRibose.exe FORCE
 	test_DeOxyRibose.exe
+	
+#
+# LevelDB support
+#
+#
+# LevelDB support
+#
+ifdef USE_LEVELDB
+LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
+DEFS += $(addprefix -I,$(CURDIR)/leveldb/include) -DUSE_LEVELDB
+DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
+OBJS += obj/leveldb.o
+leveldb/libleveldb.a:
+    cd leveldb; make libleveldb.a libmemenv.a; cd ..
+obj/leveldb.o: leveldb/libleveldb.lib
+endif
+
 
 obj/%.o: %.cpp $(HEADERS)
 	g++ -c $(CFLAGS) -o $@ $<

@@ -6,6 +6,7 @@ DEPSDIR:=/usr/i586-mingw32msvc
 
 USE_UPNP:=0
 USE_IPV6:=1
+USE_LEVELDB:=1
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
@@ -98,6 +99,19 @@ OBJS= \
     src/simd.o
 
 all: DeOxyRibosed.exe
+
+#
+# LevelDB support
+#
+ifdef USE_LEVELDB
+LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
+DEFS += $(addprefix -I,$(CURDIR)/leveldb/include) -DUSE_LEVELDB
+DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
+OBJS += obj/leveldb.o
+leveldb/libleveldb.a:
+	@echo "Building LevelDB ..."; cd leveldb; make libleveldb.a libmemenv.a; cd ..;
+obj/leveldb.o: leveldb/libleveldb.a
+endif
 
 obj/build.h: FORCE
 	/bin/sh ../share/genbuild.sh obj/build.h

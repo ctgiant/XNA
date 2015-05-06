@@ -78,7 +78,7 @@ contains(USE_LEVELDB, -) {
     LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
     SOURCES += src/leveldb.cpp
     !win32 {
-        #genleveldb.commands = cd $$PWD/src/leveldb ; $(MAKE) libleveldb.a libmemenv.a
+        genleveldb.commands = cd $$PWD/src/leveldb ; $(MAKE) libleveldb.a libmemenv.a
     } else {
         # make an educated guess about what the ranlib command is called
         isEmpty(QMAKE_RANLIB) {

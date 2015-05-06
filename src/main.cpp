@@ -980,71 +980,7 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 	{
 		nSubsidy = 73000 * COIN;
 	}
-	else if(nHeight >= 1200)
-	{
-		nSubsidy = 70000 * COIN;
-	}
-	else if(nHeight >= 1400)
-	{
-		nSubsidy = 69850 * COIN;
-	}
-	else if(nHeight >= 1600)
-	{
-		nSubsidy = 67842 * COIN;
-	}
-	else if(nHeight >= 1800)
-	{
-		nSubsidy = 65951 * COIN;
-	}
-	else if(nHeight >= 2000)
-	{
-		nSubsidy = 62854 * COIN;
-	}
-	else if(nHeight >= 2400)
-	{
-		nSubsidy = 51268 * COIN;
-	}
-	else if(nHeight >= 2600)
-	{
-		nSubsidy = 48968 * COIN;
-	}
-	else if(nHeight >= 2800)
-	{
-		nSubsidy = 44849 * COIN;
-	}
-	else if(nHeight >= 3000)
-	{
-		nSubsidy = 43586 * COIN;
-	}
-	else if(nHeight >= 3200)
-	{
-		nSubsidy = 40000 * COIN;
-	}
-	else if(nHeight >= 3400 && nFees <= 1 * COIN)
-	{
-		nSubsidy = 39523 * COIN;
-	}
-	else if(nHeight >= 3400 && nFees <= 100 * COIN)
-	{
-		nSubsidy = nFees * 4444444 / 12121212;
-		if(nSubsidy >= 1000) {nSubsidy = nFees;}
-	}
-	else if(nHeight >= 3400 && nFees <= 1000 * COIN)
-	{
-		nSubsidy = nFees * 2222222 / 66666;
-		if(nSubsidy >= 10000) {nSubsidy = nFees;}
-	}
-	else if(nHeight >= 3400 && nFees <= 10000 * COIN)
-	{
-		nSubsidy = nFees * 8888888 / 3434343434 * 10000;
-		if(nSubsidy >= 10000) {nSubsidy = nFees;}
-	}
-	else if(nHeight >= 3400 && nFees <= 100000 * COIN)
-	{
-		nSubsidy = nFees * 1111111 / 222222;
-		if(nSubsidy >= 1000000) {nSubsidy = nFees;}
-	}
-	
+
 	return nSubsidy + nFees;
 }
 

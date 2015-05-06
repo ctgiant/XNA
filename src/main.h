@@ -27,7 +27,7 @@ class CRequestTracker;
 class CNode;
 
 
-#define POW_CUTOFF_HEIGHT 10000
+#define POW_CUTOFF_HEIGHT 1700
 
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;

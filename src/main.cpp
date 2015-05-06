@@ -994,7 +994,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
 	
     int64 nSubsidy = nCoinAge * nRewardCoinYear * 33 / (365 * 33 + 8);
 
-    return nSubsidy + nFees;
+    return nSubsidy;
 }
 
 static const int64 nTargetTimespan = 360;

@@ -991,8 +991,6 @@ int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees)
 {
     int64 nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
-    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
-
     return nSubsidy + nFees;
 }
 

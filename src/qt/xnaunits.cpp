@@ -68,10 +68,10 @@ qint64 DeOxyRiboseUnits::factor(int unit)
     case TXnA:  return  10000000000;
 	case XNA:  return   1000000000;
 	case dXNA:  return  100000000;
-    case mmXNA:  return 1000000;
+    case XNA:  return   1000000;
     case mXNA: return   1000;
     case uXNA: return   1;
-    default:   return   100000000;
+    default:   return   1000000;
     }
 }
 
